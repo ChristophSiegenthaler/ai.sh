@@ -5,7 +5,7 @@ user_input=""
 config_file="$HOME/.config/ai.sh/config"
 
 is_installed() {
-  which -s "$1" > /dev/null
+  which "$1" > /dev/null
 }
 
 ensure_dependency() {
@@ -170,7 +170,7 @@ run() {
       ;;
     Copy\ to\ Clipboard)
       echo "Copying completion to clipboard"
-      pbcopy < "$completion_temp_file"
+      xclip -sel clip < "$completion_temp_file"      
       ;;
     Discard|"")
       echo "Completion discarded"
